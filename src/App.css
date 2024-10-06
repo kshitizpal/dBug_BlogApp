@@ -1,0 +1,328 @@
+/* Main App Container */
+
+.app-header {
+  text-align: center;
+  padding: 20px;
+  background-color: #35424a; /* Dark background */
+  color: white; /* White text */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+  margin-bottom: 20px; /* Add space below the header */
+}
+
+.app-header h2 {
+  margin: 10px 0; /* Margin for tagline */
+  color: #f0f0f0; /* Light color for better visibility */
+}
+
+.app-header p {
+  margin-top: 10px; /* Space above the author name */
+  font-style: italic; /* Italic style for author name */
+  font-size: 18px; /* Font size for author name */
+}
+
+.app {
+  display: flex;
+  height: 100vh;
+  background-color: #2b2b2b;
+}
+
+/* Sidebar Styling */
+.sidebar {
+  width: 250px;
+  background-color: #1e1e1e;
+  color: white;
+  padding: 20px;
+  box-sizing: border-box;
+  position: relative;
+  flex-shrink: 0; /* Sidebar won't shrink */
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  margin-bottom: 20px;
+}
+
+.sidebar ul li button {
+  background-color: transparent;
+  color: #e0e0e0;
+  font-size: 18px;
+  border: none;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.sidebar ul li button:hover {
+  color: #3498db;
+}
+
+/* Main Content Styling */
+.main-content {
+  flex-grow: 1;
+  padding: 20px;
+  background-color: #232323;
+  color: #e0e0e0;
+  overflow-y: auto;
+}
+
+/* Header */
+.app-header {
+  text-align: center;
+  padding: 20px;
+  background-color: #35424a; /* Dark background */
+  color: white; /* White text */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+}
+
+.app-header h1 {
+  font-size: 2.5rem; /* Larger font size for title */
+  margin: 0; /* Remove default margin */
+}
+
+.tagline {
+  font-size: 1.2rem; /* Slightly smaller font size for the tagline */
+  margin-top: 5px; /* Space between title and tagline */
+  font-style: italic; /* Italicize the tagline for emphasis */
+}
+
+/* Blog List and Blog Post Styling */
+.blog-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.blog-item {
+  background-color: #fff;
+  padding: 20px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+}
+
+.blog-item p {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: pre-wrap; /* Ensures long texts wrap and respect line breaks */
+  max-width: 100%;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* Show only 2 lines */
+  -webkit-box-orient: vertical;
+  overflow: hidden; /* Hide the overflowing text */
+}
+
+
+.blog-item:hover p {
+  white-space: normal;
+}
+
+
+.blog-item p.author {
+  color: #555; /* Slightly darker than content */
+  font-size: 16px; /* Set the font size for author name */
+  margin-bottom: 5px; /* Space below the author name */
+}
+
+
+.blog-item p.content {
+  color: #666; /* Color for content */
+  font-size: 18px; /* Set the font size for blog content (larger than author) */
+  line-height: 1.5; /* Better line spacing for readability */
+}
+
+.blog-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
+}
+
+.blog-item h2 {
+  font-size: 22px;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.blog-item p {
+  font-size: 16px; /* Slightly smaller for metadata */
+  color: #777; /* Lighter color for author and date */
+  margin-bottom: 10px;
+}
+
+.blog-item p strong {
+  color: #333; /* Keep strong labels bold */
+}
+
+/* Buttons for Edit and Delete */
+.edit-button,
+.delete-button {
+  margin-right: 10px;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.edit-button {
+  background-color: #3498db;
+  color: white;
+}
+
+.edit-button:hover {
+  background-color: #2980b9;
+}
+
+.delete-button {
+  background-color: #e74c3c;
+  color: white;
+}
+
+.delete-button:hover {
+  background-color: #c0392b;
+}
+
+/* Form Styling */
+form {
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 25px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin: 0 auto;
+  max-width: 600px;
+}
+
+label {
+  font-weight: bold;
+  margin-bottom: 10px;
+  display: block;
+  color: #333; /* Darker text color for better visibility */
+}
+
+input, textarea {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  color: #333; /* Darker text inside input fields */
+  background-color: #f9f9f9; /* Slightly off-white background */
+}
+
+input::placeholder, textarea::placeholder {
+  color: #888; /* Darker placeholder text */
+}
+
+input:focus, textarea:focus {
+  border-color: #3498db;
+  outline: none;
+}
+
+/* Submit Button */
+button {
+  background-color: #2ecc71;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  margin-top: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #27ae60;
+}
+
+/* Header */
+h1 {
+  color: #f1f1f1;
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+h2 {
+  font-size: 24px;
+  color: #333;
+}
+
+.modal {
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 600px;
+  width: 100%;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.popup-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 600px;
+  width: 90%;
+  max-height: 80vh;
+  overflow-y: auto; /* Allow scrolling if content is too long */
+}
+
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* Responsive Media Queries */
+@media (max-width: 768px) {
+  .app {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    height: auto;
+  }
+
+  .main-content {
+    padding: 15px;
+  }
+
+  .blog-list {
+    grid-template-columns: 1fr;
+  }
+}
