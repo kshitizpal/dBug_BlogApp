@@ -17,9 +17,9 @@ const CreateBlog = ({ addPost, updatePost, editingPost }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (editingPost) {
-      // Creating the updated post object
+      
       const updatedPost = { ...editingPost, title, content };
-      console.log('Updating post:', updatedPost); // Debugging output
+      console.log('Updating post:', updatedPost); 
       updatePost(updatedPost);
     } else {
       addPost({ title, content });

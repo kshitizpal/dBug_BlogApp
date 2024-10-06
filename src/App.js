@@ -1,26 +1,24 @@
 import React, { useState } from 'react';
 import BlogForm from './BlogForm';
 import Sidebar from './Sidebar';
-import BlogPopup from './BlogPopup'; // Importing the BlogPopup component
+import BlogPopup from './BlogPopup';
 import './App.css';
 
 const App = () => {
   const [posts, setPosts] = useState([]);
   const [editingPost, setEditingPost] = useState(null);
   const [currentPage, setCurrentPage] = useState('home');
-  const [selectedPost, setSelectedPost] = useState(null); // State for the selected post
+  const [selectedPost, setSelectedPost] = useState(null);
 
-  // Add a new post
   const addPost = (post) => {
     const newPost = {
       ...post,
-      date: new Date().toLocaleDateString(), // Automatically add the current date
+      date: new Date().toLocaleDateString(),
     };
     setPosts([...posts, newPost]);
     setCurrentPage('home');
   };
 
-  // Update an existing post
   const updatePost = (updatedPost) => {
     setPosts(posts.map(post => 
       post.title === editingPost.title ? updatedPost : post
@@ -29,25 +27,21 @@ const App = () => {
     setCurrentPage('home');
   };
 
-  // Delete a post
   const deletePost = (postToDeleteTitle) => {
     if (window.confirm('Are you sure you want to delete this post?')) {
       setPosts(posts.filter(post => post.title !== postToDeleteTitle));
     }
   };
 
-  // Edit a post
   const editPost = (post) => {
     setEditingPost(post);
     setCurrentPage('create');
   };
 
-  // Handle page change from sidebar
   const handlePageChange = (page) => {
     setCurrentPage(page);
   };
 
-  // Profile section
   const profileSection = (
     <div className="profile-section">
       <h2>Profile</h2>
@@ -75,8 +69,8 @@ const App = () => {
                 posts.map((post, index) => (
                   <div key={index} className="blog-item" onClick={() => setSelectedPost(post)}>
                     <h2>{post.title}</h2>
-                    <p><strong>Author:</strong> {post.author} | <strong>Date:</strong> {post.date}</p> {/* Display author and date */}
-                    <p>{post.content.substring(0, 100)}...</p> {/* Show preview */}
+                    <p><strong>Author:</strong> {post.author} | <strong>Date:</strong> {post.date}</p>
+                    <p>{post.content.substring(0, 100)}...</p>
                     <button className="edit-button" onClick={(e) => { e.stopPropagation(); editPost(post); }}>Edit</button>
                     <button className="delete-button" onClick={(e) => { e.stopPropagation(); deletePost(post.title); }}>Delete</button>
                   </div>
@@ -94,11 +88,10 @@ const App = () => {
           />
         )}
 
-        {selectedPost && ( // Popup display logic
+        {selectedPost && (
           <BlogPopup post={selectedPost} onClose={() => setSelectedPost(null)} />
         )}
 
-        {/* Display Profile Section when 'profile' is selected in Sidebar */}
         {currentPage === 'profile' && profileSection}
       </div>
     </div>

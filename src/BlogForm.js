@@ -5,12 +5,12 @@ const BlogForm = ({ addPost, updatePost, editingPost }) => {
   const [content, setContent] = useState('');
   const [author, setAuthor] = useState('');
 
-  // Pre-fill the form if editing a post
+
   useEffect(() => {
     if (editingPost) {
       setTitle(editingPost.title);
       setContent(editingPost.content);
-      setAuthor(editingPost.author); // Set the author field
+      setAuthor(editingPost.author); 
     } else {
       setTitle('');
       setContent('');
@@ -22,12 +22,12 @@ const BlogForm = ({ addPost, updatePost, editingPost }) => {
     const newPost = { title, content, author };
 
     if (editingPost) {
-      updatePost(newPost);  // Update the post
+      updatePost(newPost);  
     } else {
-      addPost(newPost);     // Add a new post
+      addPost(newPost);  
     }
 
-    // Reset form after submission
+    
     setTitle('');
     setContent('');
     setAuthor('');

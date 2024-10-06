@@ -1,14 +1,14 @@
 import React from 'react';
 
 const BlogPost = ({ title, content, onEdit, onDelete }) => {
-  // Handle edit action
+ 
   const handleEdit = () => {
     onEdit({ title, content });
   };
 
-  // Handle delete action
+  
   const handleDelete = () => {
-    onDelete(title); // Passing title directly for deletion
+    onDelete(title); 
   };
 
   return (
